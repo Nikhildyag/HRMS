@@ -28,7 +28,7 @@ const AdminProjectReport = () => {
         const json = await response.json();
         if (json?.projectReports) {
           setProjectReports(json.projectReports);
-          console.log(json.projectReports);
+          // console.log(json.projectReports);
         } else {
           throw new Error("No project Reports field in response");
         }
@@ -67,7 +67,10 @@ const AdminProjectReport = () => {
               <tbody className="bg-white">
                 {projectReports.map((report) => {
                   return (
-                    <tr className="bg-gray-200  border-b-2 border-white  hover:bg-gray-100">
+                    <tr
+                      key={report._id}
+                      className="bg-gray-200  border-b-2 border-white  hover:bg-gray-100"
+                    >
                       <td className="px-6 py-4 whitespace-no-wrap font-normal text-center">
                         {report.project}
                       </td>

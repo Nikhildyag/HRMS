@@ -56,7 +56,7 @@ const AdminEmployees = () => {
 
       const data2 = await response.json();
       if (!response.ok) {
-        console.log(data2);
+        //console.log(data2);
         setError(data2?.message);
       } else {
         toast.success("Employee Deleted Successfully");
@@ -67,7 +67,7 @@ const AdminEmployees = () => {
       }
     } catch (error) {
       if (error.message === "Network response was not ok") navigate("/");
-      console.error("Submit error:", error);
+      //console.error("Submit error:", error);
       setError("Error submitting employee data");
     }
   };

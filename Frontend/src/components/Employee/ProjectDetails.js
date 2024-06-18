@@ -28,12 +28,12 @@ const ProjectDetails = () => {
         const json = await response.json();
         if (json?.projects) {
           setProjects(json.projects);
-          console.log(json.projects);
+          // console.log(json.projects);
         } else {
           throw new Error("No projects field in response");
         }
       } catch (error) {
-        console.log(error);
+        //console.log(error);
         //if (error.message === "Network response was not ok") navigate("/");
         setError("Error fetching project data");
       }

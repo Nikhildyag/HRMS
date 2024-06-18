@@ -50,7 +50,7 @@ const EmployeeHeader = () => {
         }
         const json = await response.json();
         setUser(json.user);
-        console.log(json.user);
+        //console.log(json.user);
       } catch (error) {
         if (error.message === "Network response was not ok") navigate("/");
         setError("Error fetching employee data");
@@ -75,10 +75,10 @@ const EmployeeHeader = () => {
       if (response.ok) {
         navigate("/"); // Redirect to the login page after successful logout
       } else {
-        console.error("Logout failed:", response.statusText);
+        // console.error("Logout failed:", response.statusText);
       }
     } catch (error) {
-      console.error("Error logging out:", error);
+      // console.error("Error logging out:", error);
     }
   };
 

@@ -71,7 +71,7 @@ const AdminEditProject = () => {
           }))
         );
       } catch (error) {
-        console.log("Error fetching project data"); // Set error message
+        // console.log("Error fetching project data"); // Set error message
       }
     };
     fetchProjectDetails();
@@ -115,7 +115,7 @@ const AdminEditProject = () => {
       };
 
       const projectDetails = JSON.stringify(data);
-      console.log(projectDetails);
+      //  console.log(projectDetails);
 
       try {
         const response = await fetch(url, {
@@ -129,7 +129,7 @@ const AdminEditProject = () => {
 
         const data2 = await response.json();
         if (!response.ok) {
-          console.log(data2);
+          //console.log(data2);
           submissionError = data2?.message;
           setError(submissionError);
         } else {
@@ -140,7 +140,7 @@ const AdminEditProject = () => {
           resetForm();
         }
       } catch (error) {
-        console.error("Submit error:", error);
+        // console.error("Submit error:", error);
         submissionError = "Error submitting project data";
         setError(submissionError);
       }

@@ -59,7 +59,7 @@ const AdminSalaryDetails = () => {
 
       const data2 = await response.json();
       if (!response.ok) {
-        console.log(data2);
+        // console.log(data2);
         setError(data2?.message);
       } else {
         toast.success("Salary Deleted Successfully");
@@ -69,7 +69,7 @@ const AdminSalaryDetails = () => {
         );
       }
     } catch (error) {
-      console.error("Submit error:", error);
+      // console.error("Submit error:", error);
       setError("Error submitting employee data");
     }
   };

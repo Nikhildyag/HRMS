@@ -326,7 +326,7 @@ const fetchSingleProject = async (req, res) => {
     if (!project) return res.status(400).json({ message: "project not found" });
     return res.status(200).json({ project: project });
   } catch (error) {
-    console.log(error);
+    //console.log(error);
     return res.status(500).json({ message: error.message });
   }
 };
@@ -347,12 +347,10 @@ const updateProjectDetails = async (req, res) => {
       return res.status(404).json({ message: "Project not found" });
     }
 
-    res
-      .status(200)
-      .json({
-        message: "Project updated successfully",
-        project: updatedProject,
-      });
+    res.status(200).json({
+      message: "Project updated successfully",
+      project: updatedProject,
+    });
   } catch (error) {
     res.status(500).json({ message: "Error updating project", error });
   }

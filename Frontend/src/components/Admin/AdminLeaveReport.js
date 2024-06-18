@@ -66,7 +66,7 @@ const AdminLeaveReport = () => {
         )
       );
     } catch (error) {
-      console.log(error);
+      //console.log(error);
       setError("Error updating leave status");
     }
   };

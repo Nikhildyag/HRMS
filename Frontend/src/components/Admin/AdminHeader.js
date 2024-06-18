@@ -33,7 +33,7 @@ const AdminHeader = () => {
         }
         const json = await response.json();
         setUser1(json.user);
-        console.log(json.user); // Changed this line to correctly log the fetched user data
+        //console.log(json.user); // Changed this line to correctly log the fetched user data
       } catch (error) {
         if (error.message === "Network response was not ok") navigate("/");
         setError("Error fetching employee data"); // Set error message
@@ -56,12 +56,12 @@ const AdminHeader = () => {
       if (response.ok) {
         navigate("/Adminlogin"); // Redirect to the login page after successful logout
       } else {
-        console.log(response);
-        console.error("Logout failed:", response.statusText);
+        //console.log(response);
+        //console.error("Logout failed:", response.statusText);
       }
     } catch (error) {
       if (error.message === "Network response was not ok") navigate("/");
-      console.error("Error logging out:", error);
+      //console.error("Error logging out:", error);
     }
   };
 

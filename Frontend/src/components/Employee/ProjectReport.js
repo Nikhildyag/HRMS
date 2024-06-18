@@ -1,16 +1,16 @@
-import React, { useEffect, useRef } from 'react'
-import EmployeeHeader from './EmployeeHeader'
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { BASE_URL } from '../helper'
-import { toast, ToastContainer } from 'react-toastify' // Import ToastContainer and toast
-import 'react-toastify/dist/ReactToastify.css'
-import Footer from '../footer/Footer'
+import React, { useEffect, useRef } from "react";
+import EmployeeHeader from "./EmployeeHeader";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { BASE_URL } from "../helper";
+import { toast, ToastContainer } from "react-toastify"; // Import ToastContainer and toast
+import "react-toastify/dist/ReactToastify.css";
+import Footer from "../footer/Footer";
 
 const ProjectReport = () => {
-  const [projects, setProjects] = useState([])
-  const [error, setError] = useState(null)
-  const navigate = useNavigate()
+  const [projects, setProjects] = useState([]);
+  const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchProjectDetails = async () => {
@@ -18,63 +18,63 @@ const ProjectReport = () => {
         const response = await fetch(
           `${BASE_URL}/api/v1/users/getProjectDetails`,
           {
-            method: 'GET',
-            credentials: 'include', // Include credentials (cookies)
+            method: "GET",
+            credentials: "include", // Include credentials (cookies)
             headers: {
-              'Content-Type': 'application/json',
+              "Content-Type": "application/json",
             },
           }
-        )
+        );
         if (!response.ok) {
-          throw new Error('Network response was not ok')
+          throw new Error("Network response was not ok");
         }
-        const json = await response.json()
+        const json = await response.json();
         if (json?.projects) {
-          setProjects(json.projects)
-          console.log(json.projects)
+          setProjects(json.projects);
+          // console.log(json.projects)
         } else {
-          throw new Error('No projects field in response')
+          throw new Error("No projects field in response");
         }
       } catch (error) {
         // if (error.message === "Network response was not ok") navigate("/");
-        setError('Error fetching project data')
+        setError("Error fetching project data");
       }
-    }
+    };
 
-    fetchProjectDetails()
-  }, [navigate])
+    fetchProjectDetails();
+  }, [navigate]);
 
-  const project = useRef()
-  const report = useRef()
+  const project = useRef();
+  const report = useRef();
 
   const handlesubmitform = async (e) => {
-    e.preventDefault()
-    const url = `${BASE_URL}/api/v1/users/addProjectReport`
+    e.preventDefault();
+    const url = `${BASE_URL}/api/v1/users/addProjectReport`;
 
     const data = {
       project: project.current.value,
       report: report.current.value,
-    }
+    };
 
-    const reportDetails = JSON.stringify(data)
-    console.log(reportDetails)
+    const reportDetails = JSON.stringify(data);
+    // console.log(reportDetails)
     const response = await fetch(url, {
-      method: 'POST',
-      credentials: 'include',
+      method: "POST",
+      credentials: "include",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: reportDetails,
-    })
-    const data2 = await response.json()
+    });
+    const data2 = await response.json();
     if (response.ok === true) {
-      toast.success('report submitted successfully')
-      navigate('/employeeProjectReport')
+      toast.success("report submitted successfully");
+      navigate("/employeeProjectReport");
     } else {
-      console.log(data2)
-      setError(data2?.message)
+      // console.log(data2)
+      setError(data2?.message);
     }
-  }
+  };
 
   return (
     <div>
@@ -99,7 +99,7 @@ const ProjectReport = () => {
                   className="mt-3 ml-4 mr-5 border-2 px-3 text-sm border-gray-500 rounded-md h-9"
                 >
                   {projects.map((project) => (
-                    <option key={project.id} value={project.projectTitle}>
+                    <option key={project._id} value={project.projectTitle}>
                       {project.projectTitle}
                     </option>
                   ))}
@@ -130,7 +130,7 @@ const ProjectReport = () => {
         <Footer />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ProjectReport
+export default ProjectReport;

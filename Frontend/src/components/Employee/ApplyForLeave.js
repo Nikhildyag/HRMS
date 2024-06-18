@@ -33,7 +33,7 @@ const ApplyForLeave = () => {
       }
       toast.success("Leave added successfully");
       const responseData = await response.json();
-      console.log(responseData);
+      //console.log(responseData);
       navigate("/employeeLeaveReport");
 
       // Assuming responseData.accessToken contains the access token
@@ -45,7 +45,7 @@ const ApplyForLeave = () => {
       setReason("");
     } catch (error) {
       if (error.message === "Network response was not ok") navigate("/");
-      console.error("Submission error:", error);
+      //console.error("Submission error:", error);
       // Handle submission error
     }
   };

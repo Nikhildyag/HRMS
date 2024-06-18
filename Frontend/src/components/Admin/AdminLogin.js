@@ -31,7 +31,7 @@ const AdminLogin = () => {
       });
       const responseData = await response1.json();
       if (!response1.ok) {
-        console.log(response1.status);
+        // console.log(response1.status);
         toast.error(responseData.message);
         //throw new Error("Login failed");
       }
@@ -44,7 +44,7 @@ const AdminLogin = () => {
       else navigate(`/employeeHomepage`);
     } catch (error) {
       if (error.message === "Unauthorized request") navigate("/");
-      console.log("Login error:", error.message);
+      //console.log("Login error:", error.message);
       // Handle login error
     }
   };

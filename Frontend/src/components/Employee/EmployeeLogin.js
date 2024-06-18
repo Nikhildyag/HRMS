@@ -32,8 +32,8 @@ const AdminLogin = () => {
       }
 
       const responseData = await response.json();
-      console.log(responseData);
-      console.log(responseData.data.accessToken);
+      // console.log(responseData);
+      // console.log(responseData.data.accessToken);
 
       // Assuming responseData.accessToken contains the access token
       // Set the accessToken cookie
@@ -41,7 +41,7 @@ const AdminLogin = () => {
 
       navigate(`/EmployeeHomepage/${username.current.value}`);
     } catch (error) {
-      console.error("Login error:", error);
+      //console.error("Login error:", error);
       // Handle login error
     }
   };

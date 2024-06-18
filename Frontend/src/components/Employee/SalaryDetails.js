@@ -26,7 +26,7 @@ const SalaryDetails = () => {
           throw new Error("Network response was not ok");
         }
         const json = await response.json();
-        console.log(json);
+        // console.log(json);
         if (json?.salarees) {
           setSalary(json.salarees);
           //console.log(json.salarees);
@@ -35,7 +35,7 @@ const SalaryDetails = () => {
         }
       } catch (error) {
         //if (error.message === "Network response was not ok") navigate("/");
-        console.log(error);
+        //console.log(error);
         setError("Error fetching project data");
       }
     };

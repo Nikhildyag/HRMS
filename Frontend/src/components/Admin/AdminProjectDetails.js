@@ -26,7 +26,7 @@ const AdminProjectDetails = () => {
         const json = await response.json();
         if (json?.projects) {
           setProjects(json.projects);
-          console.log(json.projects);
+          // console.log(json.projects);
         } else {
           throw new Error("No projects field in response");
         }

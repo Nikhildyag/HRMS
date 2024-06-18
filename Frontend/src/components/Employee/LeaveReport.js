@@ -34,7 +34,7 @@ const LeaveReport = () => {
       const json = await response.json();
       if (json?.leaves) {
         setLeaves(json.leaves);
-        console.log(json.leaves);
+        // console.log(json.leaves);
       } else {
         throw new Error("No Leaves field in response");
       }

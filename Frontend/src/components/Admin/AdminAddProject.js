@@ -100,17 +100,17 @@ const AdminAddProject = () => {
 
         if (!response.ok) {
           const data2 = await response.json();
-          console.log("Response not OK:", data2);
+          //console.log("Response not OK:", data2);
           throw new Error(data2?.message || "Error submitting project data");
         }
 
         const data2 = await response.json();
-        console.log("Response OK:", data2);
+        // console.log("Response OK:", data2);
 
         toast.success("Project(s) added successfully");
         resetForm();
       } catch (error) {
-        console.error("Submit error:", error);
+        // console.error("Submit error:", error);
         setError(error.message);
         toast.error(error.message);
       }
