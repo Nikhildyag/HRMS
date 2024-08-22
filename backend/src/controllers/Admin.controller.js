@@ -260,6 +260,7 @@ const getLeaveReportList = async (req, res) => {
   try {
     const leaves = await LeaveReport.find();
     if (!leaves) throw new ApiError(400, "Leave Reports not found");
+    leaves.reverse();
     return res.status(200).json({ LeaveReports: leaves });
   } catch (error) {
     // console.log("nikhil");
